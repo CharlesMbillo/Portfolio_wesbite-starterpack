@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const formData = new FormData(form); // Collect form data
 
-    fetch('your-endpoint-url', { // Replace with your endpoint URL
+
+      fetch('http://localhost:3000/submit-form',{
       method: 'POST',
       body: formData
     })
