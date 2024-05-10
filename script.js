@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const formData = new FormData(form); // Collect form data
 
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware to parse the incoming request body
+app.use(express.urlencoded({ extended: true }));
+
+// Route that handles form submission
+app.post('/submit-form', (req, res) => {
+  const formData = req.body;
+  console.log('Form data received:', formData);
+  // Here you would typically save the data to a database
+  res.send('Form submitted successfully!');
+});
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
 
       fetch('http://localhost:3000/submit-form',{
       method: 'POST',
